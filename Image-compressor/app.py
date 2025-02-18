@@ -46,5 +46,7 @@ def download_image(filename):
     path = os.path.join(UPLOAD_FOLDER, filename)
     return send_file(path, as_attachment=True)
 
+# Render Deployment Compatibility
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
